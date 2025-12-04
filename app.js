@@ -23,7 +23,7 @@ downbtn.addEventListener('click', () => {
 
 let covidbtn = document.getElementById('covidtracker');
 covidbtn.addEventListener('click', () => {
-    alert('There are total 2,21,00,000 active cases in the world currently.');
+    alert('There are total 2,21,67,763 active cases in the world currently.');
 });
 
 // let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=53a9124daa4a4ddaa142fd5bc80128f3";
