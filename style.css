@@ -1,0 +1,274 @@
+img{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    object-fit: cover;
+}
+#datetime{
+    font-size: 25px;
+}
+#loadpara{
+    color: blue;
+}
+
+body{
+    height: 100;
+    width: 100; 
+    color: purple;
+    margin: 0;
+    height: 100vh; 
+    font-family: "static", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.loader{
+    height: 5px;
+    width: 100%;
+    background-color: black;
+    color: red;
+    border-radius: 10px;
+    border: solid black 2px;
+    box-shadow:  0px 15px 30px black;
+
+    animation-name: Loading;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+}
+
+@keyframes Loading {
+    from{
+        width: 0%;
+    }
+    to{
+        width:100%;
+        animation-delay: 3s;    
+    }
+}
+
+.block{
+    display: none;
+}
+
+.maincont{
+    #datetime{
+        font-size: 20px;
+        color: blue;
+    }
+    width: 100%;
+    height: 100vh;
+    /* background-color: #7494ec; */
+}
+.heading{
+    position: relative;
+    width: 100%;
+    height: 10%;
+    background-color: transparent;
+    color: purple;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+}
+.heading a {
+    font-size: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.news{
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        color: red;
+    }
+    a:active{
+        color: orange;
+    }
+    width: 95%;
+    height: 60%;
+    display: inline-flex;
+    padding: 10px;
+    gap: 15px;
+    color: black
+}
+
+.Ect{
+    h2{
+        margin-top: 25px;
+        background-color: white;
+        color: black;
+    }
+    font-size: 18px;
+    border: solid black 2px;
+    border-radius: 8%;
+    width: 100%;
+    background-color: lightseagreen;
+    overflow:auto;
+}
+.Ect::-webkit-scrollbar {
+    display: none;
+}
+
+.hindu{
+    h2{
+        margin-top: 25px;
+        background-color: white;
+        color: black
+    }
+    font-size: 18px;
+    border: solid black 2px;
+    border-radius: 8%;
+    width: 100%;
+    background-color: lightcoral;
+    overflow:auto;
+}
+.hindu::-webkit-scrollbar {
+    display: none;
+}
+
+.ht{
+    h2{
+        margin-top: 25px;
+        background-color: white;
+        color: black
+    }
+    font-size: 18px;
+    border: solid black 2px;
+    border-radius: 8%;
+    width: 100%;
+    background-color: orange;
+    overflow:auto;
+}
+.ht::-webkit-scrollbar {
+    display: none;
+}
+
+.TOI{
+    h2{
+        margin-top: 25px;
+        background-color: white;
+        color: black
+    }
+    font-size: 18px;
+    border: solid black 2px;
+    border-radius: 8%;
+    width: 100%;
+    background-color: lightblue;
+    overflow: auto;
+}
+.TOI::-webkit-scrollbar {
+    display: none;
+}
+
+#downloadbtn{
+    font-size: large;
+    margin-left: 60px;
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+    display: block;
+    background-color: #7494ec;
+    border-radius: 35%;
+    border: none;
+
+}
+.buttons{
+    display: flex;
+}
+#covidtracker{
+    font-size: 18px;
+    margin-left: 75%;
+    margin-top: 20px;
+    height: 50px;
+    width: 150px;
+    display: inline;
+    background-color: #7494ec;
+    border-radius: 15px;
+    border: none;
+}
+.large{
+    font-size: 50px;
+    margin-left: 10%;
+    margin-top: 20px;
+    display: inline;
+    background-color: white;
+    border-radius: 15px;
+    border: solid black 2px;
+    height: 50px;
+    width: 80%;
+
+    animation-name: extend;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1s;
+}
+@keyframes extend{
+    from{
+        margin-left: 75%;
+        width: 150px;
+    }
+    to{
+        margin-left: 5%;
+        width: 80%;
+        animation-delay: 3s;    
+    }
+}
+.notes{
+    background-color: lightyellow;
+}
+
+.tooltip {
+  position: relative;
+  /* display: inline-block; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80%;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  overflow-y: scroll;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
