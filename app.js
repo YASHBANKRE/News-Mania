@@ -4,7 +4,7 @@ setTimeout(() => {
     // document.querySelector('.bg-image').style.display = 'none';
     document.querySelector('.main').style.display = 'none';
     document.querySelector('.maincont').style.display = 'block';
-}, 2500);
+}, 3000);
 
 function updateDateTime() {
     const now = new Date();
@@ -23,36 +23,43 @@ downbtn.addEventListener('click', () => {
 
 let covidbtn = document.getElementById('covidtracker');
 covidbtn.addEventListener('click', () => {
+    if(!covidbtn.classList.contains('large')){
     covidbtn.classList.add('large');
     covidbtn.style.width = '80%';
     covidbtn.style.marginLeft = '5%';
     
     let url = "https://api.rootnet.in/covid19-in/stats/latest";
     async function fetchCovidData(){
+    try{
     let response = await fetch(url);
     let data = await response.json();
     covidbtn.style.fontSize = '20px';
     covidbtn.innerHTML = `<strong>Total Active Cases :</strong> ${data.data.summary.confirmedCasesIndian} &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp<strong>Total Deaths :</strong> ${data.data.summary.deaths} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<strong>Total Recovered :</strong> ${data.data.summary.discharged}`;
-    
+    }catch(err){
+        covidbtn.innerHTML = '<strong>My free API request trial has been ended</strong>';
     }
-
+        
+    }
+    //Im made this as a fxn bcz await require async function.
     fetchCovidData();
-
-    setTimeout(() => {
+    }else{
         covidbtn.classList.remove('large');
         covidbtn.style.width = '150px';
         covidbtn.style.marginLeft = '75%';
         covidbtn.innerText = "Covid Tracker";
         covidbtn.style.fontSize = '18px'
-    }, 7000);
-
+    }
+    
 });
 
     async function getNews(url, cn){
+        let ul = document.querySelector(cn);
         try{
         let response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("API returned status " + response.status);
+        }
         let data = await response.json();
-        let ul = document.querySelector(cn);
         for(let i=0; i<data.results.length; i++){
             let ele = document.createElement('li');
             let anch = document.createElement('a');
@@ -69,7 +76,18 @@ covidbtn.addEventListener('click', () => {
         }
         }
         catch(e){
-
+            let ele = document.createElement('li');
+            let anch = document.createElement('a');
+            anch.setAttribute('class', 'tooltip')
+            let div = document.createElement('div');
+            div.setAttribute('class', 'tooltiptext');
+            div.innerText = "You can check by making a free account on this website";
+            anch.href = "https://newsdata.io/";
+            anch.textContent = "My free API request trial has been ended";
+            div.appendChild(anch);
+            ele.appendChild(anch);
+            anch.appendChild(div);
+            ul.appendChild(ele);
         }
     }
 
